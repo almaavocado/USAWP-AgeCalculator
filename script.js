@@ -26,5 +26,9 @@ document.getElementById('ageForm').addEventListener('submit', function(event) {
         ageGroup = 'Adult';
     }
     
+    // Clear previous result
+    document.getElementById('result').innerText = '';
+    
+    // Display new result
     document.getElementById('result').innerText = `Age Group: ${ageGroup}`;
 });
