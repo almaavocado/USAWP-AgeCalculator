@@ -3,27 +3,34 @@ document.getElementById('ageForm').addEventListener('submit', function(event) {
     
     const birthdate = new Date(document.getElementById('birthdate').value);
     const today = new Date();
-    let age = today.getFullYear() - birthdate.getFullYear();
-    const monthDiff = today.getMonth() - birthdate.getMonth();
+    const currentYear = today.getFullYear();
+    const ageAsOfDate = new Date(currentYear, 7, 1); // August 1st of the current year
     
-    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthdate.getDate())) {
+    let age = ageAsOfDate.getFullYear() - birthdate.getFullYear();
+    const monthDiff = ageAsOfDate.getMonth() - birthdate.getMonth();
+    
+    if (monthDiff < 0 || (monthDiff === 0 && ageAsOfDate.getDate() < birthdate.getDate())) {
         age--;
     }
     
     let ageGroup = '';
     
-    if (age <= 10) {
-        ageGroup = 'Under 10';
+    if (age < 7) {
+        ageGroup = 'Not Eligible';
+    } else if (age <= 9) {
+        ageGroup = 'Splashball';
+    } else if (age <= 10) {
+        ageGroup = '10U';
     } else if (age <= 12) {
-        ageGroup = 'Under 12';
+        ageGroup = '12U';
     } else if (age <= 14) {
-        ageGroup = 'Under 14';
+        ageGroup = '14U';
     } else if (age <= 16) {
-        ageGroup = 'Under 16';
+        ageGroup = '16U';
     } else if (age <= 18) {
-        ageGroup = 'Under 18';
+        ageGroup = '18U';
     } else {
-        ageGroup = 'Adult';
+        ageGroup = 'Not Eligible';
     }
     
     // Clear previous result
