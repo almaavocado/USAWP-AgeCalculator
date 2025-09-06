@@ -18,11 +18,11 @@
   // Build rolling, 2-year eligibility windows for the given season
   const buildRanges = (seasonYear) => ([
     { label: 'Splashball', start: D(seasonYear - 8, 7, 1),  end: D(seasonYear - 6, 6, 31) },
-    { label: '10U',        start: D(seasonYear - 10, 7, 1), end: D(seasonYear - 8, 6, 31) },
-    { label: '12U',        start: D(seasonYear - 12, 7, 1), end: D(seasonYear - 10, 6, 31) },
-    { label: '14U',        start: D(seasonYear - 14, 7, 1), end: D(seasonYear - 12, 6, 31) },
-    { label: '16U',        start: D(seasonYear - 16, 7, 1), end: D(seasonYear - 14, 6, 31) },
-    { label: '18U',        start: D(seasonYear - 18, 7, 1), end: D(seasonYear - 16, 6, 31) },
+    { label: '10U', start: D(seasonYear - 10, 7, 1), end: D(seasonYear - 8, 6, 31) },
+    { label: '12U', start: D(seasonYear - 12, 7, 1), end: D(seasonYear - 10, 6, 31) },
+    { label: '14U', start: D(seasonYear - 14, 7, 1), end: D(seasonYear - 12, 6, 31) },
+    { label: '16U', start: D(seasonYear - 16, 7, 1), end: D(seasonYear - 14, 6, 31) },
+    { label: '18U', start: D(seasonYear - 18, 7, 1), end: D(seasonYear - 16, 6, 31) },
   ]);
 
   const findGroup = (birthdate, ranges) => {
