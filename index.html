@@ -14,12 +14,13 @@
     </div>
     <div class="container">
         <h1>Water Polo Age Calculator</h1>
+        <p class="subtle">Eligibility is based on birthdate as of Aug 1 each season.</p>
         <form id="ageForm">
             <label for="birthdate">Enter Birthdate:</label>
             <input type="date" id="birthdate" name="birthdate" required>
             <button type="submit">Check Age Group</button>
         </form>
-        <div id="result"></div>
+        <div id="result" aria-live="polite"></div>
     </div>
     <script src="script.js"></script>
 </body>

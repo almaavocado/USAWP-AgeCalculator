@@ -1,100 +1,182 @@
-/* General Styling */
+/* ===== Base Styling ===== */
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+html, body {
+  height: 100%;
 }
 
 body {
-    background-color: #f0f0f0;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
+  background-color: #f0f0f0; /* light neutral background */
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #1f2937; /* slate-800 */
 }
 
-/* Club Logos */
+/* ===== Club Logos (original look preserved) ===== */
 .club-logo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
 }
 
 .club-logo-img {
-    max-width: 75px;
-    height: auto;
+  max-width: 75px;
+  height: auto;
 }
 
 .usawp-logo-img {
-    max-width: 50px; /* USAWP logo is smaller */
-    height: auto;
+  max-width: 50px; /* keep smaller than lion */
+  height: auto;
 }
 
 .separator {
-    font-size: 24px;
-    font-weight: bold;
-    margin: 0 15px;
-    color: #333;
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0 15px;
+  color: #333;
 }
 
-/* Main Container */
+/* ===== Main Container ===== */
 .container {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    width: 100%;
-    max-width: 400px;
+  width: 100%;
+  max-width: 440px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb; /* gray-200 */
+  border-radius: 12px;
+  box-shadow: 0 6px 24px rgba(16, 24, 40, 0.08),
+              0 2px 8px rgba(16, 24, 40, 0.06);
+  padding: 24px 22px 20px;
+  text-align: center;
 }
 
 h1 {
-    font-size: 24px;
-    margin-bottom: 20px;
-    color: #333;
+  font-size: clamp(20px, 2.4vw, 26px);
+  font-weight: 700;
+  margin-bottom: 14px;
+  color: #333;
 }
 
-/* Form Styling */
+.subtle {
+  color: #6b7280; /* gray-500 */
+  font-size: 14px;
+  margin-bottom: 14px;
+}
+
+/* ===== Form Styling ===== */
 form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+  display: grid;
+  gap: 12px;
+  text-align: left;
 }
 
 label {
-    font-size: 16px;
-    color: #555;
+  font-size: 15px;
+  color: #555;
 }
 
 input[type="date"] {
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    width: 100%;
+  appearance: none;
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 10px;
+  background: #fff;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
 
+input[type="date"]:hover {
+  border-color: #cbd5e1; /* gray-300 */
+}
+
+input[type="date"]:focus {
+  outline: none;
+  border-color: #59A8D9; /* brand blue */
+  box-shadow: 0 0 0 3px rgba(89, 168, 217, 0.4);
+}
+
+/* ===== Button Styling ===== */
 button {
-    padding: 10px;
-    font-size: 16px;
-    color: white;
-    background-color: #007bff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(135deg, #59A8D9, #730217);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.08s ease, filter 0.15s ease;
 }
 
 button:hover {
-    background-color: #0056b3;
+  filter: brightness(1.05);
 }
 
-/* Result Section */
+button:active {
+  transform: translateY(1px);
+}
+
+button:focus-visible {
+  outline: 3px solid rgba(89, 168, 217, 0.6);
+  outline-offset: 2px;
+}
+
+/* ===== Result Section ===== */
 #result {
-    margin-top: 20px;
-    font-size: 18px;
-    color: #333;
+  margin-top: 18px;
+  min-height: 44px; /* prevents layout shift */
+  font-size: 18px;
+}
+
+.result {
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 12px 14px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.result strong {
+  font-weight: 800;
+}
+
+.result small {
+  display: block;
+  margin-top: 6px;
+  color: #6b7280;
+}
+
+/* Status accents */
+.result.ok {
+  border-color: rgba(89,168,217,0.5);
+}
+.result.not-eligible {
+  border-color: rgba(115,2,23,0.5);
+  color: #730217;
+}
+
+/* ===== Small screen tweaks ===== */
+@media (max-width: 380px) {
+  .club-logo {
+    gap: 10px;
+  }
+  .club-logo-img {
+    max-width: 75px; /* unchanged */
+  }
+  .usawp-logo-img {
+    max-width: 50px; /* unchanged */
+  }
 }
